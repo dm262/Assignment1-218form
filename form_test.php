@@ -1,27 +1,20 @@
 <?php
 // define variables and set to empty values
-$firstname_error = $lastname_error =$email_error = $password_error =$questionname_error =$quesionbody_error = $birthday_error = "";
-$firstname = $lastname = $email = $password = $birthday = $quesionbody = $questionname = $success = "";
+$firstname_error = $lastname_error = $email_error = $password_error = $questionname_error = $questionbody_error = $birthday_error = "";
+$firstname = $lastname = $email = $password = $birthday = $questionbody = $questionname = $success = "";
 
 //form is submitted with POST method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["firstname"])) {
-        $name_error = "first name is required";
+        $firstname_error = "first name is required";
     } else {
-        $name = test_input($_POST["firstname"]);
-        // check if name only contains letters and whitespace
-        if (!preg_match("/^[a-zA-Z ]*$/",$firstname)) {
-            $name_error = "Only letters and white space allowed";
-        }
+        $firstname = test_input($_POST["firstname"]);
+
     }
     if (empty($_POST["lastname"])) {
-        $name_error = "Last name is required";
+        $lastname_error = "Last name is required";
     } else {
-        $name = test_input($_POST["lastname"]);
-        // check if name only contains letters and whitespace
-        if (!preg_match("/^[a-zA-Z ]*$/",$lastname)) {
-            $lastname_error  = "Only letters and white space allowed";
-        }
+        $lastname = test_input($_POST["lastname"]);
     }
 
     if (empty($_POST["email"])) {
@@ -62,14 +55,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($_POST["questionbody"])) {
-        $quesionbody_error = "You have not entered a question body";
+        $questionbody_error = "You have not entered a question body";
     } else {
-        $quesionbody = test_input($_POST["questionbody"]);
-        if (strlen($quesionbody) < 3){
-            $quesionbody_error = "You question body must be at least  3 characters";
+        $questionbody = test_input($_POST["questionbody"]);
+        if (strlen($questionbody) < 3){
+            $questionbody_error = "You question body must be at least  3 characters";
         }
     }
-    
+
 }
 
 function test_input($data) {

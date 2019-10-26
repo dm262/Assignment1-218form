@@ -1,41 +1,35 @@
-<?php
-?>
+<?php include('form_test.php'); ?>
+<div>
+    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+        <h1>Registration</h1>
+        <fieldset>
+            <input placeholder="Your first name" type="text" name="firstname" value="<?= $firstname ?>"  >
+            <span><?= $firstname_error ?></span>
+        </fieldset>
 
-html lang="en">
-<head>
-    <meta charset="utf-8">
+        <fieldset>
+            <input placeholder="Your last name" type="text" name="lastname" value="<?= $lastname ?>"  >
+            <span><?= $lastname_error ?></span>
+        </fieldset>
 
-    <title>Registration Page</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
 
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
+        <fieldset>
+            <input placeholder="Your Email Address" type="text" name="email" value="<?= $email ?>"  >
+            <span><?= $email_error ?></span>
+        </fieldset>
 
-</head>
+        <fieldset>
+            <input placeholder="Birthday" type="date" name="birthday" value="<?= $birthday ?>"  >
+            <span><?= $birthday_error ?></span>
+        </fieldset>
 
-<body>
-<form action="registrationpage.php" method="post">
+        <fieldset>
+            <input placeholder="Password" type="password" name="password" value="<?= $password ?>"  >
+            <span><?= $password_error ?></span>
+        </fieldset>
 
-    <span>* required field.</span>
-    <br>
-    <input type="text" placeholder="Enter First Name" name="firstname">
-    <
-    <br>
-    <input type="text" placeholder="Enter Last Name" name="Lastname">
+        <button name="submit" type="submit"  data-submit="...Sending">Submit</button>
 
-    <br>
-    <input type="date" placeholder="Enter Birthday" name="birthday">
+        <div><?= $success ?></div>
 
-    <br>
-    <input type="email" placeholder="Enter Email" name="email">
-
-    <br>
-    <input type="password" placeholder="Enter Password" name="password">
-
-    <br>
-    <input type="submit" name="submit">
-
-</form>
-
-</body>
-</html>
+    </form>
