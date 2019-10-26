@@ -1,5 +1,4 @@
 <?php include('form_test.php'); ?>
-<!--<link rel="stylesheet" href="css/styles.css" type="text/css">-->
 <div >
     <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
         <h3>LOGIN</h3>

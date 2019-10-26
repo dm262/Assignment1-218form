@@ -1,7 +1,7 @@
 <?php
 // define variables and set to empty values
-$firstname_error = $lastname_error = $email_error = $password_error = $questionname_error = $questionbody_error = $birthday_error = "";
-$firstname = $lastname = $email = $password = $birthday = $questionbody = $questionname = $success = "";
+$firstname_error = $lastname_error = $email_error = $password_error = $questionname_error = $questionbody_error = $questionskills_error = $birthday_error = "";
+$firstname = $lastname = $email = $password = $birthday = $questionbody = $questionname = $questionarray =$questionskills = $success = "";
 
 //form is submitted with POST method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -45,11 +45,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($_POST["questionname"])) {
-        $questionname_error = "You have not entered a question";
+        $questionname_error = "You have not entered a question name";
     } else {
         $questionname = test_input($_POST["questionname"]);
         if (strlen($questionname) < 3){
-            $questionname_error = "You question name must be at least  3 characters";
+            $questionname_error = "Your question name must be at least  3 characters";
         }
 
     }
@@ -58,10 +58,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $questionbody_error = "You have not entered a question body";
     } else {
         $questionbody = test_input($_POST["questionbody"]);
-        if (strlen($questionbody) < 3){
-            $questionbody_error = "You question body must be at least  3 characters";
+        if (strlen($questionbody) > 500){
+            $questionbody_error = "You question body must be less than 500 characters";
         }
     }
+
+
+    if (empty($_POST["questionskills"])){
+        $questionskills_error ="you havent entered any skills.";
+    }else{
+        $skills  = ($_POST["questionskills"]);
+        $myArray =explode(',',$skills);
+        if (sizeof($myArray) < 2){
+            $questionskills_error ="You need at least 2 skills.";
+        }else{
+            $questionarray = print_r($myArray);
+        }
+
+    }
+
+
+
+
 
 }
 
