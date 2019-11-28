@@ -14,33 +14,42 @@ include('form_test.php'); ?>
 
 <body>
 
-<div class="container-fluid">
-    <div class="jumbotron">
-        <h1 class=" title display-4">Registration</h1>
-        <p class="lead">Welcome to my assignment registration page</p>
-        <hr class="my-4">
-        <p>Enter all your information below</p>
-    </div>
-</div>
+<!--<div class="container-fluid">-->
+<!--    <div class="jumbotron">-->
+<!--        <h1 class=" title display-4">Registration</h1>-->
+<!--        <p class="lead">Welcome to my assignment registration page</p>-->
+<!--        <hr class="my-4">-->
+<!--        <p>Enter all your information below</p>-->
+<!--    </div>-->
+<!---->
+<!--</div>-->
+<div class="container-fluid bg">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+<!--                form starts-->
 
-<div class="container">
 
-    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-        <div class="form-group">
+            <form class="form-container" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                <h1 class="title">Register</h1>
+
+                <div class="form-group">
             <label for="firstnname">First Name</label>
             <input type="text" class="form-control"  name="firstname" value="<?= $firstname?>" aria-describedby="emailHelp" placeholder="Enter First name">
             <span class="error"><?= $firstname_error ?></span>
-        </div>
-        <div class="form-group">
+             </div>
+
+                <div class="form-group">
             <label for="lastname">Last Name</label>
             <input type="text" class="form-control"  name="lastname" value="<?= $lastname?>" aria-describedby="emailHelp" placeholder="Enter last name">
             <span class="error"><?= $lastname_error ?></span>
-        </div>
-        <div class="form-group">
+                </div>
+
+                 <div class="form-group">
             <label for="birthday">Birthday</label>
             <input type="date" class="form-control"  name="birthday" value= "<?= $birthday?>" aria-describedby="emailHelp" placeholder="Enter your Birthday">
             <span class="error"><?= $birthday_error ?></span>
-        </div>
+                </div>
 
         <div class="form-group">
             <label for="email">Email address </label>
@@ -53,10 +62,14 @@ include('form_test.php'); ?>
             <span class="error"><?= $password_error ?></span>
         </div>
 
-        <button type="submit" name="submit" class="btn btn-primary">Register</button>
+        <button type="submit" name="submit" class="btn btn-success btn-block">Register</button>
         <span><?=$success?></span>
     </form>
-</div>
+<!--                form ends-->
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
 
+    </div>
+</div>
 </body>
 </html>

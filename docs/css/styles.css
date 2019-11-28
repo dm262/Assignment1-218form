@@ -1,12 +1,16 @@
-body{
-    background-color: coral;
-}
 
-.jumbotron{
-    background-image: url("/docs/images/clearglass.jpg");
-
+.bg{
+    background-image: url("../../docs/images/brick.jpg");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
 }
 .title{
     font-family: 'Baskervville', serif;
-
+}
+.form-container{
+    border: 1px solid white;
+    padding: 40px 40px;
+    margin-top:10vh ;
+    background-color: white;
 }
