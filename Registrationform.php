@@ -6,19 +6,23 @@ include('form_test.php'); ?>
 <head>
     <meta charset="utf-8">
     <title>Registration</title>
+    <link href="https://fonts.googleapis.com/css?family=Baskervville&display=swap" rel="stylesheet">
+    <link href="docs/css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<div></div>
+
 <div class="container-fluid">
     <div class="jumbotron">
-        <h1 class="display-4">Registration</h1>
+        <h1 class=" title display-4">Registration</h1>
         <p class="lead">Welcome to my assignment registration page</p>
         <hr class="my-4">
         <p>Enter all your information below</p>
     </div>
 </div>
+
 <div class="container">
 
     <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
@@ -52,10 +56,6 @@ include('form_test.php'); ?>
         <button type="submit" name="submit" class="btn btn-primary">Register</button>
         <span><?=$success?></span>
     </form>
-
-
-
-
 </div>
 
 </body>

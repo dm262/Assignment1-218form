@@ -1,7 +1,12 @@
 body{
-    background-color: azure;
+    background-color: coral;
 }
+
 .jumbotron{
-    background-image: url("../images/desert.jpg");
+    background-image: url("/docs/images/clearglass.jpg");
+
+}
+.title{
+    font-family: 'Baskervville', serif;
 
 }
