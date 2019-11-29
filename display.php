@@ -57,7 +57,7 @@ include('form_test.php');
 
             </form>
             <form action="questionform.php">
-                <button name="question" class="btn btn-success btn-block" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                <button name="question" class="btn btn-success btn-block" type="submit" id="contact-submit" data-submit="...Sending">Add new question</button>
 
             </form>
         </div>

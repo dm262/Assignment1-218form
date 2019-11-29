@@ -17,7 +17,7 @@ include('form_test.php'); ?>
     <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
         <div class="col-md-4 col-sm-4 col-xs-12">
-    <form class="form-container" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+    <form class="form-container" action="display.php ?>" method="post">
         <h3 class="title">Question Form</h3>
 
 
