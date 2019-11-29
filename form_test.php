@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO accounts (fname, lname, email, birthday, password) VALUES(:fname, :lname, :email, :birthday, :password)";
         $stmt = $pdo->prepare($sql);
 
-        $stmt->execute(['fname' => $_POST["firstname"], 'lname' => $_POST["Lastname"], 'email' => $_POST["email"], 'birthday' => $_POST["birthday"], 'password' => $_POST["password"]]);
+        $stmt->execute(['fname' => $_POST["firstname"], 'lname' => $_POST["lastname"], 'email' => $_POST["email"], 'birthday' => $_POST["birthday"], 'password' => $_POST["password"]]);
         $success = "Your account has been registered ";
 
 
@@ -101,6 +101,14 @@ if (isset($_POST['submit'])) {
         $stmt->execute(['title' => $_POST["title"], 'body' => $_POST["body"], 'skills' => $_POST["skills"]]);
         $success = "Your question has been received";
 
+    }
+
+    if($body_error=""){
+        $sql = "INSERT INTO questions (owneremail, body) VALUES(:owneremail, :body)";
+        $stmt = $pdo->prepare($sql);
+
+        $stmt->execute(['owneremail' => $_POST["title"], 'body' => $_POST["body"]]);
+        $success = "Your question has been received";
     }
 
 //LOGIN
@@ -119,15 +127,19 @@ if (isset($_POST['submit'])) {
                  $post->fname ;
                  $post->lname;
             }
+            $_SESSION['fname'] ="$post->fname";
+            $_SESSION['lname'] ="$post->lname";
+
 
             $sql2 = "SELECT * FROM questions WHERE owneremail= '$email'";
-            $stmt2 = $pdo->prepare($sql);
+            $stmt2 = $pdo->prepare($sql2);
             $stmt2->execute();
             $posts2 =$stmt2->fetchAll();
 
             foreach ($posts2 as $posts20){
                 $posts20->body;
             }
+            $_SESSION['question'] ="$posts20->body";
 
 
 //            header('Location: display.php');

@@ -30,7 +30,7 @@ include('form_test.php'); ?>
 <!--                form starts-->
 
 
-            <form class="form-container" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+            <form class="form-container" action="display.php" method="post">
                 <h1 class="title">Register</h1>
 
                 <div class="form-group">

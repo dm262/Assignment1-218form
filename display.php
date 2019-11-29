@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('form_test.php');
 
 ?>
@@ -24,15 +25,15 @@ include('form_test.php');
 
 
                 <div class="form-group">
-                    <p> Firstname: <?= $post->fname ; ?></p>
+                    <p> Firstname: <?= $_SESSION['fname'] ; ?></p>
                 </div>
                 <div class="form-group">
-                    <p> Lastname: <?= $post->lname ; ?></p>
+                    <p> Lastname: <?= $_SESSION['lname'] ; ?></p>
                 </div>
 
                 <div class="form-group" >
                     <label for="body"> Question</label>
-                    <p> Your question:<?= $posts20->body ?></p>
+                    <p><?= $_SESSION['question'] ?></p>
 
                 </div>
 
