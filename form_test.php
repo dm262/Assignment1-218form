@@ -110,16 +110,35 @@ if (isset($_POST['submit'])) {
         $stmt->execute();
         $rownumber =$stmt->rowCount();
         if ($rownumber >= 1 ){
-            include ('display.php');
+            $sql = "SELECT * FROM accounts WHERE email= '$email' and password= '$password'";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            $posts =$stmt->fetchAll();
+
+            foreach ($posts as $post){
+                 $post->fname ;
+                 $post->lname;
+            }
+
+            $sql2 = "SELECT * FROM questions WHERE owneremail= '$email'";
+            $stmt2 = $pdo->prepare($sql);
+            $stmt2->execute();
+            $posts2 =$stmt2->fetchAll();
+
+            foreach ($posts2 as $posts20){
+                $posts20->body;
+            }
+
+
+//            header('Location: display.php');
+//            exit;
+
 
         }else{
             $success="Username or password is incorrect";
 
 
         }
-
-//        $stmt->execute(['title' => $_POST["title"], 'body' => $_POST["body"], 'skills' => $_POST["skills"]]);
-//        $success = "Your question has been received";
 
     }
 

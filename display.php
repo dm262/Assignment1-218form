@@ -1,5 +1,7 @@
 <?php
-include('form_test.php'); ?>
+include('form_test.php');
+
+?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
@@ -22,12 +24,15 @@ include('form_test.php'); ?>
 
 
                 <div class="form-group">
-                    <p> Username: <?= $title ?></p>
+                    <p> Firstname: <?= $post->fname ; ?></p>
+                </div>
+                <div class="form-group">
+                    <p> Lastname: <?= $post->lname ; ?></p>
                 </div>
 
                 <div class="form-group" >
                     <label for="body"> Question</label>
-                    <textarea class="form-control" id="body" name="body" rows="3" ><?= $body ?></textarea>
+                    <p> Your question:<?= $posts20->body ?></p>
 
                 </div>
 
