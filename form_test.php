@@ -83,7 +83,7 @@ if (isset($_POST['submit'])) {
 //        }
 
     }
-
+// REGISTRATION
     if ($firstname_error == '' and $lastname_error == '' and $email_error == '' and $birthday_error == '' and $password_error == '' ){
         $sql = "INSERT INTO accounts (fname, lname, email, birthday, password) VALUES(:fname, :lname, :email, :birthday, :password)";
         $stmt = $pdo->prepare($sql);
@@ -93,7 +93,7 @@ if (isset($_POST['submit'])) {
 
 
     }
-
+// QUESTIONS ENTER
     if ($title_error == '' and $body_error == '' and $skills_error == '' ) {
         $sql = "INSERT INTO questions (title, body, skills) VALUES(:title, :body, :skills)";
         $stmt = $pdo->prepare($sql);
@@ -103,18 +103,18 @@ if (isset($_POST['submit'])) {
 
     }
 
-
+//LOGIN
     if ($email_error == '' and $password_error == '' ) {
         $sql = "SELECT * FROM accounts WHERE email= '$email' and password= '$password'";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $rownumber =$stmt->rowCount();
         if ($rownumber >= 1 ){
-            $success="This user already exists";
-            print_r($rownumber);
+            include ('display.php');
+
         }else{
-            $success="Did not find user";
-            print_r($rownumber);
+            $success="Username or password is incorrect";
+
 
         }
 
