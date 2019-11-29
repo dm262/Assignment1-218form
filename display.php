@@ -13,6 +13,11 @@ include('form_test.php');
     <link href="docs/css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        document.getElementById("myButton").onclick = function () {
+            location.href = "https://web.njit.edu/~dm262/project1v2/questionform.php";
+        };
+    </script>
 </head>
 
 <body>
@@ -40,17 +45,19 @@ include('form_test.php');
 
                 </div>
 
-                <div class="form-group">
-                    <label for="question"> Add new question</label>
-                    <textarea placeholder="Enter question" id="question" class="form-control" rows="3" name="body"></textarea>
-
-                </div>
-
-
-                <button name="register" class="btn btn-success btn-block" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+<!--                <div class="form-group">-->
+<!--                    <label for="question"> Add new question</label>-->
+<!--                    <textarea placeholder="Enter question" id="question" class="form-control" rows="3" name="body"></textarea>-->
+<!--                </div>-->
 
 
-                <div><?= $success ?></div>
+<!--                <button name="register" class="btn btn-success btn-block" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>-->
+<!--                <div>--><?//= $success ?><!--</div>-->
+
+
+            </form>
+            <form action="questionform.php">
+                <button name="question" class="btn btn-success btn-block" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
 
             </form>
         </div>
