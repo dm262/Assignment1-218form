@@ -95,11 +95,22 @@ if (isset($_POST['submit'])) {
     }
 // QUESTIONS ENTER
     if ($title_error == '' and $body_error == '' and $skills_error == '' ) {
-        $sql = "INSERT INTO questions (title, body, skills) VALUES(:title, :body, :skills)";
+        $sql = "INSERT INTO questions (owneremail, title, body, skills) VALUES(:owneremail,:title, :body, :skills)";
         $stmt = $pdo->prepare($sql);
 
-        $stmt->execute(['title' => $_POST["title"], 'body' => $_POST["body"], 'skills' => $_POST["skills"]]);
+        $stmt->execute(['owneremail' => $_SESSION['owneremail'],'title' => $_POST["title"], 'body' => $_POST["body"], 'skills' => $_POST["skills"]]);
         $success = "Your question has been received";
+
+        $sql2 = "SELECT * FROM questions WHERE body= '$body'";
+        $stmt2 = $pdo->prepare($sql2);
+        $stmt2->execute();
+        $posts2 =$stmt2->fetchAll();
+
+        foreach ($posts2 as $posts20){
+            $posts20->body;
+        }
+        $_SESSION['question'] ="$posts20->body";
+        $_SESSION['owneremail'] ="$posts20->owneremail";
 
     }
 
@@ -150,7 +161,9 @@ if (isset($_POST['submit'])) {
 
     }
 
+if (isset($_POST['question'])){
 
+}
 
 
 }

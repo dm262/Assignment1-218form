@@ -35,9 +35,9 @@ include('form_test.php');
                 <div class="form-group">
                     <p> Lastname: <?= $_SESSION['lname'] ; ?></p>
                 </div>
-                <div class="form-group">
-                    <p> email: <?=  $_SESSION['owneremail']; ?></p>
-                </div>
+<!--                <div class="form-group">-->
+<!--                    <p> email: --><?//=  $_SESSION['owneremail']; ?><!--</p>-->
+<!--                </div>-->
 
                 <div class="form-group" >
                     <label for="body"> Question</label>
@@ -58,7 +58,6 @@ include('form_test.php');
             </form>
             <form action="questionform.php">
                 <button name="question" class="btn btn-success btn-block" type="submit" id="contact-submit" data-submit="...Sending">Add new question</button>
-
             </form>
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12"></div>

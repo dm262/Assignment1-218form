@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('form_test.php'); ?>
 
 <!DOCTYPE html>

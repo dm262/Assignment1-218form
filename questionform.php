@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('form_test.php'); ?>
 
 <!DOCTYPE html>
@@ -17,25 +18,25 @@ include('form_test.php'); ?>
     <div class="row">
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
         <div class="col-md-4 col-sm-4 col-xs-12">
-    <form class="form-container" action="display.php ?>" method="post">
+    <form class="form-container" action="display.php" method="post">
         <h3 class="title">Question Form</h3>
 
 
         <div class="form-group">
-            <label for="questionname"> Name</label>
+            <label for="questionname"> Title of question</label>
             <input placeholder="Title" class="form-control" type="text" id="title" name="title" value="<?= $title ?>">
             <span><?= $title_error ?></span>
         </div>
 
         <div class="form-group" >
             <label for="body"> Body</label>
-            <textarea placeholder="Body"  class="form-control" id="body" name="body" rows="3"  value="<?= $body ?>" ></textarea>
+            <input  placeholder="Body"  class="form-control form-control-lg" id="body" name="body" rows="3"  value="<?= $body ?>" >
             <span><?= $body_error ?></span>
         </div>
 
         <div class="form-group">
             <label for="skills"> Skills</label>
-            <textarea placeholder="Skills" id="skills" class="form-control" rows="3" name="skills" value="<?= $skills ?>"></textarea>
+            <input placeholder="Skills" id="skills" class="form-control form-control-lg" ="3" name="skills" value="<?= $skills ?>">
             <span><?= $skills_error ?></span>
         </div>
 
