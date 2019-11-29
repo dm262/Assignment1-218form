@@ -42,6 +42,7 @@ if (isset($_POST['submit'])) {
     if (empty($_POST["password"])) {
         $password_error = "password is required";
     } else {
+        $password = test_input($_POST["password"]);
         // check if password is well-formed
         if (strlen($_POST["password"]) < 8) {
             $password_error = "Your password must be at least 8 characters";
@@ -99,6 +100,26 @@ if (isset($_POST['submit'])) {
 
         $stmt->execute(['title' => $_POST["title"], 'body' => $_POST["body"], 'skills' => $_POST["skills"]]);
         $success = "Your question has been received";
+
+    }
+
+
+    if ($email_error == '' and $password_error == '' ) {
+        $sql = "SELECT * FROM accounts WHERE email= '$email' and password= '$password'";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $rownumber =$stmt->rowCount();
+        if ($rownumber >= 1 ){
+            $success="This user already exists";
+            print_r($rownumber);
+        }else{
+            $success="Did not find user";
+            print_r($rownumber);
+
+        }
+
+//        $stmt->execute(['title' => $_POST["title"], 'body' => $_POST["body"], 'skills' => $_POST["skills"]]);
+//        $success = "Your question has been received";
 
     }
 

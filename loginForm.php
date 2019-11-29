@@ -1,22 +1,50 @@
-<?php include('form_test.php'); ?>
-<div >
-    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-        <h3>LOGIN</h3>
 
-        <fieldset>
-            <input placeholder="Your Email Address" type="text" name="email" value="<?= $email ?>" tabindex="1" autofocus>
-            <span ><?= $email_error ?></span>
-        </fieldset>
+<?php
+include('form_test.php'); ?>
 
-        <fieldset>
-            <input placeholder="Password" type="password" name="password" value="<?= $password ?>" tabindex="2">
-            <span ><?= $password_error ?></span>
-        </fieldset>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <title>Log in</title>
+    <link href="https://fonts.googleapis.com/css?family=Baskervville&display=swap" rel="stylesheet">
+    <link href="docs/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
+</head>
 
-        <fieldset>
-            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
-        </fieldset>
+<body>
+<div class="container-fluid bg">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <form class="form-container" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                <h3 class="title"> Login</h3>
 
-        <div><?= $success ?></div>
 
-    </form>
+                <div class="form-group">
+                    <label for="email"> Email </label>
+                    <input class="form-control" placeholder="Your Email Address" type="text" id="email" name="email" value="<?= $email ?>" >
+                    <span><?= $email_error ?></span>
+                </div>
+
+                <div class="form-group" >
+                    <label for="password"> Password </label>
+                    <input class="form-control" placeholder="Password" id="password" type="password" name="password" value="<?= $password ?>" >
+                    <span><?= $password_error ?></span>
+                </div>
+
+
+
+
+                <button name="submit" class="btn btn-success btn-block" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+
+
+                <div><?= $success ?></div>
+
+            </form>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+    </div>
+</body>
+</html>
