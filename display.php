@@ -30,6 +30,9 @@ include('form_test.php');
                 <div class="form-group">
                     <p> Lastname: <?= $_SESSION['lname'] ; ?></p>
                 </div>
+                <div class="form-group">
+                    <p> email: <?=  $_SESSION['owneremail']; ?></p>
+                </div>
 
                 <div class="form-group" >
                     <label for="body"> Question</label>
@@ -39,12 +42,12 @@ include('form_test.php');
 
                 <div class="form-group">
                     <label for="question"> Add new question</label>
-                    <textarea placeholder="Enter question" id="question" class="form-control" rows="3" name="skills" "> </textarea>
+                    <textarea placeholder="Enter question" id="question" class="form-control" rows="3" name="body"></textarea>
 
                 </div>
 
 
-                <button name="submit" class="btn btn-success btn-block" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                <button name="register" class="btn btn-success btn-block" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
 
 
                 <div><?= $success ?></div>

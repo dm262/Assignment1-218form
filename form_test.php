@@ -103,13 +103,7 @@ if (isset($_POST['submit'])) {
 
     }
 
-    if($body_error=""){
-        $sql = "INSERT INTO questions (owneremail, body) VALUES(:owneremail, :body)";
-        $stmt = $pdo->prepare($sql);
 
-        $stmt->execute(['owneremail' => $_POST["title"], 'body' => $_POST["body"]]);
-        $success = "Your question has been received";
-    }
 
 //LOGIN
     if ($email_error == '' and $password_error == '' ) {
@@ -131,6 +125,7 @@ if (isset($_POST['submit'])) {
             $_SESSION['lname'] ="$post->lname";
 
 
+
             $sql2 = "SELECT * FROM questions WHERE owneremail= '$email'";
             $stmt2 = $pdo->prepare($sql2);
             $stmt2->execute();
@@ -140,6 +135,7 @@ if (isset($_POST['submit'])) {
                 $posts20->body;
             }
             $_SESSION['question'] ="$posts20->body";
+            $_SESSION['owneremail'] ="$posts20->owneremail";
 
 
 //            header('Location: display.php');
@@ -158,6 +154,19 @@ if (isset($_POST['submit'])) {
 
 
 }
+
+if (isset($_POST['register'])){
+    $sql = "INSERT INTO questions (owneremail, body) VALUES(:owneremail, :body)";
+    $stmt = $pdo->prepare($sql);
+
+    $stmt->execute(['owneremail' => $_SESSION['owneremail'], 'body' => $_POST["body"]]);
+    $success = "Your question has been received";
+    if (!$success){
+        $success = "Sorry, your question was not received";
+
+    }
+}
+
 
 function test_input($data) {
     $data = trim($data);
